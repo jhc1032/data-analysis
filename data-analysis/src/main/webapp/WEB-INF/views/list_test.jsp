@@ -8,15 +8,15 @@
 <meta http-equiv="content-Script-type" content="text/javascript">
 <meta http-equiv="content-Style-type" content="text/css">
 <title>bigdata</title>
-<link rel="stylesheet" href="/scheduler/resources/css/index.css" type="text/css">
-<link rel="stylesheet" href="/scheduler/resources/css/website.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/dataanalysis/resources/css/index.css" type="text/css">
+<link rel="stylesheet" href="/dataanalysis/resources/css/website.css" type="text/css" media="screen">
 <script type="text/javascript" async=""	src="http://www.google-analytics.com/ga.js"></script>
-<script type="text/javascript" src="/scheduler/resources/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/scheduler/resources/js/ui/effects.core.js"></script>
+<script type="text/javascript" src="/dataanalysis/resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/dataanalysis/resources/js/ui/effects.core.js"></script>
 <!-- 탭부분  스크립트-->
-<script type="text/javascript" src="/scheduler/resources/js/jquery-ui.js"></script>
-<script type="text/javascript" 	src="/scheduler/resources/js/jquery.tinyscrollbar.min.js"></script>
-<script type="text/javascript" src="/scheduler/resources/js/util.js"></script>
+<script type="text/javascript" src="/dataanalysis/resources/js/jquery-ui.js"></script>
+<script type="text/javascript" 	src="/dataanalysis/resources/js/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript" src="/dataanalysis/resources/js/util.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -110,7 +110,7 @@
 		};
 		/* $("#innerTweet1")
 				.html(
-						"<div class='loading'><img src='/scheduler/resources/images/loading2.gif'></div>"); */
+						"<div class='loading'><img src='/dataanalysis/resources/images/loading2.gif'></div>"); */
 		$("#innerTweet1").load(
 				url,
 				$.param(params),
@@ -167,7 +167,7 @@
 		};
 		/* $("#innerRtTweet1")
 				.html(
-						"<div class='loading'><img src='/scheduler/resources/images/loading2.gif'></div>"); */
+						"<div class='loading'><img src='/dataanalysis/resources/images/loading2.gif'></div>"); */
 		$("#innerRtTweet1").load(
 				url,
 				$.param(params),
@@ -221,7 +221,7 @@
 		};
 		/* $("#innerBlog1")
 				.html(
-						"<div class='loading'><img src='/scheduler/resources/images/loading2.gif'></div>"); */
+						"<div class='loading'><img src='/dataanalysis/resources/images/loading2.gif'></div>"); */
 		$("#innerBlog1").load(
 				url,
 				$.param(params),
@@ -272,7 +272,7 @@
 			order : order
 		};
 		var className = source == 'twitter' ? 'tweetBox' : 'blogBox';
-		//	$("#mainTab01_03").html("<div class='loading'><img src='/scheduler/resources/images/loading2.gif'></div>");
+		//	$("#mainTab01_03").html("<div class='loading'><img src='/dataanalysis/resources/images/loading2.gif'></div>");
 		$.ajax({
 			url : url,
 			data : params,
@@ -371,9 +371,9 @@
 
 <!-- Flex Setting Start -->
 <link rel="stylesheet" type="text/css"
-	href="/scheduler/resources/swf/history/history.css">
-<script src="/scheduler/resources/swf/AC_OETags.js" language="javascript"></script>
-<script src="/scheduler/resources/swf/history/history.js" language="javascript"></script>
+	href="/dataanalysis/resources/swf/history/history.css">
+<script src="/dataanalysis/resources/swf/AC_OETags.js" language="javascript"></script>
+<script src="/dataanalysis/resources/swf/history/history.js" language="javascript"></script>
 <script language="JavaScript" type="text/javascript">
 	// Globals
 	// Major version of Flash required
@@ -512,7 +512,7 @@
 						<!-- 엑셀 파일 제공 -->
 						<p class="excel">
 							<a href="#');" title="엑셀 다운로드는 소셜메트릭스Biz 유료 버전에서 제공됩니다."><img
-								src="/scheduler/resources/images/iconExcel.png" alt="엑셀 다운로드"></a>
+								src="/dataanalysis/resources/images/iconExcel.png" alt="엑셀 다운로드"></a>
 						</p>
 						<!--// 엑셀 파일 -->
 						
@@ -521,7 +521,7 @@
 						<div class="flex_box">
 							<script language="JavaScript" type="text/javascript">
 							</script>
-							<embed src="/scheduler/resources/swf/MainSpringGraph.swf" width="100%"
+							<embed src="/dataanalysis/resources/swf/MainSpringGraph.swf" width="100%"
 								height="100%" align="middle" id="MainSpringGraph" quality="high"
 								bgcolor="#ffffff" name="MainSpringGraph"
 								allowscriptaccess="sameDomain"
@@ -532,11 +532,11 @@
 								id="MainSpringGraph" width="100%" height="100%"
 								codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab"&gt;
 								&lt;param name="movie"
-								value="/scheduler/resources/swf/MainSpringGraph.swf" /&gt; &lt;param
+								value="/dataanalysis/resources/swf/MainSpringGraph.swf" /&gt; &lt;param
 								name="quality" value="high" /&gt; &lt;param name="bgcolor"
 								value="#ffffff" /&gt; &lt;param name="allowScriptAccess"
 								value="sameDomain" /&gt; &lt;embed
-								src="/scheduler/resources/swf/MainSpringGraph.swf" quality="high"
+								src="/dataanalysis/resources/swf/MainSpringGraph.swf" quality="high"
 								bgcolor="#ffffff" width="100%" height="100%"
 								name="MainSpringGraph" align="middle" play="true" loop="false"
 								quality="high" allowScriptAccess="sameDomain"
