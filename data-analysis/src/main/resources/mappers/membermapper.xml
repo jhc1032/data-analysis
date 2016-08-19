@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataanalysis.mapper.MemberMapper">
+
+	<!-- 이거에 접근할 때 namespace.id 로 접근한다. -->
+	<!-- resultType은 자바의 타입과 매핑되는 것이 있다. 여기선 string이 java.lang.String과 매핑 -->
+	<select id="getNow" resultType="string">
+		select now()   <!-- 세미콜론 쓰면 안됨 -->
+	</select>
+	
+	<insert id="register">
+		insert into tbl_member(email, password, gender, age )
+		values( #{email} , #{password}, #{gender}, #{age} );
+	</insert>
+	
+	<!-- 
+			XML Mapper를 작성할 때 매번 resultType을 패키지까지 포함된 클래스명을 작성하는 일이 번거롭다면
+			MyBatis의 설정 파일인 mybatis-config.xml을 사용해서 다음과 같이 <typeAliases>를 작성하면된다.
+			<typeAliases>
+				<package name = "org.zerock.domain"/>
+			</typeAliases>		
+	-->
+	<select id="get" resultType="com.dataanalysis.dto.Member">
+		select *
+		from Member
+		where email = #{email}
+	
+	</select>
+	
+	<select id="getList" resultType="com.dataanalysis.dto.Member">
+		select *
+		from Member;
+	</select>
+</mapper>
