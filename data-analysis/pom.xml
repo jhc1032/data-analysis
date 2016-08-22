@@ -15,6 +15,7 @@
 	</properties>
 	
 	
+
 	<repositories>
 		<!-- maven 기본 저장소 이외의 저장소 등록 -->
 		<repository>
