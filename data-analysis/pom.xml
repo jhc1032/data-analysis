@@ -141,6 +141,12 @@
 		    <version>1.3.0</version>
 		</dependency>
 		
+		<dependency>
+         <groupId>org.twitter4j</groupId>
+         <artifactId>twitter4j-core</artifactId>
+         <version>4.0.4</version>
+      </dependency>
+		
 		<!-- spring aop library -->
 		<dependency>
 			<groupId>org.springframework</groupId>
