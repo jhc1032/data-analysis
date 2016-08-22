@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- html에 대한 버전 설정 -->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 
@@ -599,7 +599,7 @@
 											<div class="recentTweet" id="innerTweet1">
 
 												<!-- tweetBox 5개를 반복하게-->
-												<c:forEach var="twitter" items="${ twitters }">
+												<c:forEach var="twitter" items="${ wtwitters }">
 												<div class="tweetBox" count="125145" pagenum="2">
 													<!-- 트위터 사진 -->
 													<p class="tweetPicture">
@@ -697,7 +697,7 @@
 											<div id="innerBlog1">
 
 												<!-- blogBox -->
-												<c:forEach var="blog" items="${ wBlogs }">
+												<c:forEach var="blog" items="${ wblogs }">
 												<div class="blogBox" count="2482" pagenum="2">
 													<ul>
 														<li class="blogTitle"><a
@@ -741,7 +741,7 @@
 									<div class="recentTweet" id="innerTweet2">
 
 										<!-- tweetBox -->
-										<c:forEach var="twitter" items="${ wTwitters }">
+										<c:forEach var="twitter" items="${ wtwitters }">
 										<div class="tweetBox" count="125145" pagenum="2">
 											<p class="tweetPicture">
 												<img
@@ -831,7 +831,7 @@
 									<div id="innerBlog2">
 
 										<!-- blogBox -->
-										<c:forEach var="blog" items="${ wBlogs }">
+										<c:forEach var="blog" items="${ wblogs }">
 										<div class="blogBox" count="2482" pagenum="2">
 											<ul>
 												<li class="blogTitle"><a

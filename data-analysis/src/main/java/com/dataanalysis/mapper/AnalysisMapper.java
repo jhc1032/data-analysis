@@ -10,7 +10,7 @@ public interface AnalysisMapper {
 
 	public List<TwitterData> selectAllTwitter();
 	public List<BlogData> selectAllBlog();
-	TwitterData getTwittersByWord(String word);
-	BlogData getBlogsByWord(String word);
-	TwitterData getTwittersByReTweetCount();
+	public List<TwitterData> selectTwittersByWord();
+	public List<BlogData> selectBlogsByWord();
+	public List<TwitterData> selectTwittersByReTweetCount();
 }

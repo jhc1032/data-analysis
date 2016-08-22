@@ -9,8 +9,7 @@ public interface AnalysisService {
 	
 	public List<TwitterData> getAllTwitter();
 	public List<BlogData> getAllBlog() ;
-	TwitterData getTwittersByWord(String word);
-	BlogData getBlogsByWord(String word);
-	TwitterData getTwittersByReTweetCount();
-
+	public List<TwitterData>  getTwittersByWord();
+	public List<BlogData> getBlogsByWord();
+	public List<TwitterData> getTwittersByReTweetCount();
 }

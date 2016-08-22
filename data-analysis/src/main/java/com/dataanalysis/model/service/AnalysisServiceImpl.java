@@ -30,21 +30,23 @@ public class AnalysisServiceImpl implements AnalysisService {
 	}
 
 	@Override
-	public TwitterData getTwittersByWord(String word) {
-		
-		return analysisDao.getTwittersByWord(word);
-	}
-
-	@Override
-	public BlogData getBlogsByWord(String word) {
+	public List<TwitterData> getTwittersByWord() {
 		// TODO Auto-generated method stub
-		return analysisDao.getBlogsByWord(word);
+		return analysisDao.getTwittersByWord();
 	}
 
 	@Override
-	public TwitterData getTwittersByReTweetCount() {
+	public List<BlogData> getBlogsByWord() {
+		// TODO Auto-generated method stub
+		return analysisDao.getBlogsByWord();
+	}
+
+	@Override
+	public List<TwitterData> getTwittersByReTweetCount() {
 		// TODO Auto-generated method stub
 		return analysisDao.getTwittersByReTweetCount();
 	}
+
+
 
 }

@@ -11,9 +11,9 @@ public interface AnalysisDao {
 
 	List<TwitterData> getAllTwitter();
 	List<BlogData> getAllBlog() ;
-	TwitterData getTwittersByWord(String word);
-	BlogData getBlogsByWord(String word);
-	TwitterData getTwittersByReTweetCount();
-	//키워드로 찾는것과 rtTweetCount별로 나열이 필요
+	List<TwitterData>  getTwittersByWord();
+	List<BlogData> getBlogsByWord();
+	List<TwitterData> getTwittersByReTweetCount();
+	
 	
 }

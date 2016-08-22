@@ -38,12 +38,13 @@ public class AnalysisController {
 	}
 		
 	//keyword에 따른 조회
-	@RequestMapping(value = "WordDataList.action", method = RequestMethod.GET)
-	public String wordDataList(@RequestParam("word") String word, Model model){
-		TwitterData wtwitters = analysisService.getTwittersByWord(word);
-		BlogData wblogs = analysisService.getBlogsByWord(word);
-		model.addAttribute("twitter", wtwitters);
-		model.addAttribute("blog", wblogs);
+	@RequestMapping(value = "wordDataList.action", method = RequestMethod.GET)
+	//public String wordDataList(@RequestParam("word") String word, Model model){
+		public String wordDataList(Model model){
+		List<TwitterData> wtwitters = analysisService.getTwittersByWord();
+		List<BlogData> wblogs = analysisService.getBlogsByWord();
+		model.addAttribute("wtwitters", wtwitters);
+		model.addAttribute("wblogs", wblogs);
 		return "list_test";
 	}
 	
@@ -52,7 +53,7 @@ public class AnalysisController {
 	//인기 트위터 조회
 	@RequestMapping(value = "rtCountList.action", method = RequestMethod.GET)
 	public String rtCountList(Model model){
-		TwitterData cTwitters = analysisService.getTwittersByReTweetCount();
+		List<TwitterData> cTwitters = analysisService.getTwittersByReTweetCount();
 		model.addAttribute("twitter", cTwitters);
 
 		return "list_test";

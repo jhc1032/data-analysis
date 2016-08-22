@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 논리적 클래스 만들기 -->
+<!-- make physical class -->
+<mapper namespace="com.dataAnalysis.mapper.AnalysisMapper">
+                                                             
+
+	<select id="selectAllTwitter" resultType="String">
+		SELECT *
+		FROM twitter
+	</select>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+	
+	<select id="selectAllBlog" resultType="String">			
+		SELECT *
+		FROM blog
+	</select>
+	
+	<select id="selectTwittersByWord" resultType="String">
+		SELECT tweetImg, tweetId, tweetName, tweetTime, tweetText
+		FROM twitter
+		WHERE word = #{word}
+	</select>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+	
+	<select id="selectBlogsByWord" resultType="String">			
+		SELECT blogTitle, blogDate, blogText, blogURL
+		FROM blog
+		WHERE word = #{word}
+	</select>
+	
+	<select id="selectTwittersByReTweetCount" resultType="String">
+		SELECT tweetImg, tweetId, tweetName, tweetTime, tweetText
+		FROM twitter
+		WHERE reTweetCount = #{reTweetCount}
+	</select>  
+	
+</mapper>
