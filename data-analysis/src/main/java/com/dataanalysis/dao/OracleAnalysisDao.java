@@ -47,7 +47,7 @@ public class OracleAnalysisDao implements AnalysisDao{
 			
 			BlogData b = new BlogData();
 			b.setBlogTitle("blogTitle");
-			b.setBlogDate(new Date());
+			//b.setBlogDate(new Date());
 			b.setBlogText("RT @RSTRY01: 런칭기념 케이크! 너무 예뻐! 국민템 테라스도 있군요... http://twitter.com/RSTRY0...");
 			b.setBlogURL("https://pbs.twimg.com/profile_images/760583347550625792/ccdmpqW1_normal.jpg");
 			list2.add(b);
@@ -82,7 +82,7 @@ public class OracleAnalysisDao implements AnalysisDao{
 		for (int i = 0; i < 5; i++) {
 			BlogData b = new BlogData();
 			b.setBlogTitle("blogTitle");
-			b.setBlogDate(new Date());
+			//b.setBlogDate(new Date());
 			b.setBlogText("BlogText");
 			b.setBlogURL("https://pbs.twimg.com");
 			list2.add(b);

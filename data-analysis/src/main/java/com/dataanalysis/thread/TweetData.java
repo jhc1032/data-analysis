@@ -61,11 +61,20 @@ public class TweetData {
 				List<Status> tweets = result.getTweets();
 
 				for (Status tweet : tweets) {
+					
 					System.out.println("------------------------------------------------------");
 					System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
 					lowestStatusId = Math.min(tweet.getId(), lowestStatusId);
 
 					str += tweet.getText();
+					
+//					out.write(tweet.getText());
+//					out.newLine();
+//					
+//					TweetData td = new TweetData();
+//					td.setTitle(title);
+//					
+//					tweetDatas.add(td);
 				}
 
 				query.setMaxId(lowestStatusId - 1);

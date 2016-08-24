@@ -15,5 +15,4 @@ public interface AnalysisDao {
 	List<BlogData> getBlogsByWord();
 	List<TwitterData> getTwittersByReTweetCount();
 	
-	
 }

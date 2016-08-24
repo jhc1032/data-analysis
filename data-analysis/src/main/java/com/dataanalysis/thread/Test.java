@@ -24,27 +24,31 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.dataanalysis.dto.BlogData;
+
 public class Test {
 	
 	private int totalNum;
+	private ArrayList<BlogData> blogDatas;
 	
 	public int getSearchWidth(String search) throws Exception {
 		String query = URLEncoder.encode(search, "UTF-8");
 		String url = "https://search.naver.com/search.naver?where=post&sm=tab_jum&ie=utf8&query=" + query + "&start=1";
 		
-		Document forTotal = Jsoup.connect(url).get();
+		Document forTotal = Jsoup.connect(url)
+				.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
 		Elements totalSearched = forTotal.select(".title_num");
 		String[] array = new String[2];
 		array = totalSearched.get(0).text().split("/");
 		totalNum = getTotalSearched(array[1].trim());
-		if (totalNum > 1000) {
-			totalNum = 1000;
+		if (totalNum > 500) {
+			totalNum = 500;
 		}
 		int searchWidth = (((totalNum / 10) * 10)/200) * 10 + 1;
 	
 		return searchWidth;
 	}
-
+	
 	public void search(String search, int pageNo, int searchWidth, String fileName) throws Exception {
 		boolean flag = false;
 		String query = URLEncoder.encode(search, "UTF-8");
@@ -62,7 +66,7 @@ public class Test {
 //				+ pageNo;
 		String[] urlArr = new String[10];
 
-		BufferedWriter out = new BufferedWriter(new FileWriter("/Users/jeonghyeoncheol/Desktop/test/" + fileName +".txt"));
+		BufferedWriter out = new BufferedWriter(new FileWriter("C:/Users/stu15/Desktop/test/" + fileName +".txt"));
 
 		
 		while (pageNo != searchWidth) {
@@ -76,6 +80,7 @@ public class Test {
 								 + query
 								 + "&date_from=20030520&date_to=" + myCurDate +
 								 "&date_option=4&start=" + pageNo)
+						.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
 						.get();
 
 				Elements liList = doc.select("#elThumbnailResultArea li");
@@ -86,6 +91,18 @@ public class Test {
 					urlArr[num] = blogUrl;
 					System.out.println(order + "번째: " + blogUrl);
 					num++;
+					
+					String title = e.select("a").attr("title");
+					String date = e.select(".txt_inline").text();
+					String content = e.select(".sh_blog_passage").text();
+					
+					BlogData bd = new BlogData();
+					bd.setBlogTitle(title);
+					bd.setBlogText(content);
+					bd.setBlogURL(blogUrl);
+					bd.setblogDate(date);
+					blogDatas.add(bd);
+					
 				}
 
 				for (String str : urlArr) {
@@ -97,14 +114,16 @@ public class Test {
 					if (str.contains("blog.naver.com")) {
 						new Thread();
 						Thread.sleep(100);
-						Document doc2 = Jsoup.connect(str).get();
+						Document doc2 = Jsoup.connect(str)
+								.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
 						Elements list = doc2.select("frame");
 						for (Element e2 : list) {
 							if (e2.attr("id").equals("mainFrame")) {
 								// System.out.println("mainFrame" +
 								// e2.attr("src"));
-								Document doc3 = Jsoup.connect("http://blog.naver.com" + e2.attr("src")).get();
-								Elements list2 = doc3.select("#postListBody");
+								Document doc3 = Jsoup.connect("http://blog.naver.com" + e2.attr("src"))
+										.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
+								Elements list2 = doc3.select("#postListBody p");
 								new Thread();
 								Thread.sleep(100);
 								for (Element e3 : list2) {
@@ -119,15 +138,17 @@ public class Test {
 							} else if (e2.attr("id").equals("screenFrame")) {
 								new Thread();
 								Thread.sleep(100);
-								Document doc4 = Jsoup.connect(e2.attr("src")).get();
+								Document doc4 = Jsoup.connect(e2.attr("src"))
+										.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
 								Elements list3 = doc4.select("#mainFrame");
 								for (Element e3 : list3) {
 									// System.out.println("screenFrame" +
 									// e3.attr("src"));
 									new Thread();
 									Thread.sleep(100);
-									Document doc5 = Jsoup.connect("http://blog.naver.com" + e3.attr("src")).get();
-									Elements list4 = doc5.select("#postListBody");
+									Document doc5 = Jsoup.connect("http://blog.naver.com" + e3.attr("src"))
+											.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
+									Elements list4 = doc5.select("#postListBody p");
 									for (Element e4 : list4) {
 										out.write(e4.text());
 										out.newLine();
@@ -140,11 +161,15 @@ public class Test {
 							}
 						}
 					} else {
-						Document doc6 = Jsoup.connect(str).get();
-						out.write(doc6.text());
-						out.newLine();
-						new Thread();
-						Thread.sleep(100);
+						Document doc6 = Jsoup.connect(str)
+								.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36").get();
+						Elements list5 = doc6.select("p");
+						for (Element e5 : list5) {
+							out.write(e5.text());
+							out.newLine();
+							new Thread();
+							Thread.sleep(100);
+						}
 					}
 
 				}
@@ -163,8 +188,6 @@ public class Test {
 			num = 0;
 			pageNo += 10;
 
-			new Thread();
-			Thread.sleep(500);
 		}
 		out.close();
 		Thread.interrupted();
@@ -193,8 +216,13 @@ public class Test {
 	public void mergeFiles() {
 		
 		String[] filePaths = new String[20];
+		filePaths[0] = "C:/Users/stu15/Desktop/test/testA.txt";
+		filePaths[1] = "C:/Users/stu15/Desktop/test/testB.txt";
+		filePaths[2] = "C:/Users/stu15/Desktop/test/testC.txt";
+		filePaths[3] = "C:/Users/stu15/Desktop/test/testD.txt";
+		filePaths[4] = "C:/Users/stu15/Desktop/test/testE.txt";
 		for(int i=0; i<15; i++) {
-			filePaths[i] = "/Users/jeonghyeoncheol/Desktop/test/test" + (i+1) + ".txt";
+			filePaths[i+5] = "C:/Users/stu15/Desktop/test/test" + (i+1) + ".txt";
 		}
 		
 //		String readFilePath1 = "/Users/jeonghyeoncheol/Desktop/test/testA.txt";
@@ -218,10 +246,10 @@ public class Test {
 //		String readFilePath19 = "/Users/jeonghyeoncheol/Desktop/test/test14.txt";
 //		String readFilePath20 = "/Users/jeonghyeoncheol/Desktop/test/test15.txt";
 		
-		String writeFilePath = "/Users/jeonghyeoncheol/Desktop/test/sample.txt";
+		String writeFilePath = "C:/Users/stu15/Desktop/test/sample.txt";
 		
-		File[] files = new File[15];
-		for(int i=0; i<15; i++) {
+		File[] files = new File[20];
+		for(int i=0; i<20; i++) {
 			files[i] = new File(filePaths[i]);
 		}
 //		files[0] = new File(readFilePath1);
