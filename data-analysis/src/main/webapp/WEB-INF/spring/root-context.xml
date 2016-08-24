@@ -27,6 +27,7 @@
 	
 
 	<!-- SqlSessionFactoryBean 생성 -->
+ 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- mybatis-config.xml 파일이 스프링이 동작할 때 같이 동작하도록 설정한 것. -->
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
@@ -38,11 +39,16 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
+	
+
+	<bean id="analysisMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.dataanalysis.mapper.AnalysisMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />	
+	</bean>
 
 
 
 	<!-- 스프링이 관리하는 패키지에 org.zerock.persistence 를 추가한다. -->
-	<context:component-scan base-package="org.zerock.persistence" />
 	<context:component-scan base-package="com.dataanalysis.dto" />
 	<context:component-scan base-package="com.dataanalysis.dao" />
 	<context:component-scan base-package="com.dataanalysis.model.service" />

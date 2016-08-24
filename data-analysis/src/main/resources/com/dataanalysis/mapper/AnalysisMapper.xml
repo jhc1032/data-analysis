@@ -4,9 +4,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<!-- 논리적 클래스 만들기 -->
 <!-- make physical class -->
-<mapper namespace="com.dataAnalysis.mapper.AnalysisMapper">
+<mapper namespace="com.dataanalysis.mapper.AnalysisMapper">
                                                              
 
 	<select id="selectAllTwitter" resultType="String">

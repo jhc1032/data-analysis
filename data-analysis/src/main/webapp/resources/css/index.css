@@ -1,27 +1,27 @@
 @charset "utf-8";
 /* CSS Document */
 
-@import url("reset.css"); /* HTML ÃÊ±âÈ­ */
-@import url("global.css"); /* ÄÜÅÙÃ÷ºÎºÐÀÇ °øÅë CSS */
+@import url("reset.css"); /* HTML ï¿½Ê±ï¿½È­ */
+@import url("global.css"); /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CSS */
 
-/* ==±âº» ·¹ÀÌ¾Æ¿ô== */
+/* ==ï¿½âº» ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½== */
 #wrap {position:relative; width:1000px; height:100%; margin:0 auto; }
 
 #header{position:relative; width:980px; height:105px; overflow:hidden; margin:0 auto;}
-/* #headHeight{height:106px;}/*ÄÁÅÙÃ÷¿µ¿ª »ó´Ü º¸Á¤(header height¸¸Å­ °íÁ¤*/
+/* #headHeight{height:106px;}/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(header heightï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½*/
 
 /* html #container{height:100%;}/* IE7 hack */
-#container{margin:0 auto -60px auto;/*ÇªÅÍheight¸¸Å­ ¸¶Áø°ª*/   width: 980px;}
+#container{margin:0 auto -60px auto;/*Çªï¿½ï¿½heightï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/   width: 980px;}
 
 #contents {position:relative; z-index:1;}
-/* IE3pixel ¹ö±×¸¦ À§ÇÑ°Í */
+/* IE3pixel ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½Ñ°ï¿½ */
 * html #contents {height:1%;}
 
-#footerHeight{clear:both; width:100%; height:60px;}/*ÄÁÅÙÃ÷¿µ¿ª ÇÏ´Ü º¸Á¤(footer height¸¸Å­ °íÁ¤*/
+#footerHeight{clear:both; width:100%; height:60px;}/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½(footer heightï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½*/
 
 #footer {position:relative; clear:both; height:60px; margin:0 auto; width:980px; }
 
-/* ==¼¼ºÎ ·¹ÀÌ¾Æ¿ô== */
+/* ==ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½== */
 html,body {background:#eae9e6; background:url(../images/beige_paper.png) 0 0 fixed;}
 
 /* header */
@@ -40,7 +40,7 @@ html,body {background:#eae9e6; background:url(../images/beige_paper.png) 0 0 fix
 #header ul.searchBox li .input_txt {float:left; width:285px; height:23px;  padding:3px 3px 0 30px; color:#FFFFFF; background:url(../images/searchBack.png) 0 0 no-repeat; border:none;}
 #header ul.searchBox li .input_img {float:left; margin:0 0 0 3px;}
 
-#submenu { overflow:hidden; margin:8px 0 0 280px;  }
+#submenu { overflow:hidden; margin:8px 0 0 400px;  }
 #submenu li { float:left; font-size:12px; font-weight:bold; border-right:1px #aaa solid; padding:0 15px 0 15px;  }
 #submenu li:last-child { border-right:none}
 #submenu li a { color:#000;}

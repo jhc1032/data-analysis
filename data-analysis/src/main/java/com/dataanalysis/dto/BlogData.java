@@ -1,10 +1,11 @@
 package com.dataanalysis.dto;
 
+import java.util.Date;
 
 public class BlogData {
 	
  private String blogTitle;
- private String blogDate;
+ private Date blogDate;
  private String blogText;
  private String blogURL;
  
@@ -14,10 +15,10 @@ public String getBlogTitle() {
 public void setBlogTitle(String blogTitle) {
 	this.blogTitle = blogTitle;
 }
-public String getblogDate() {
+public Date getblogDate() {
 	return blogDate;
 }
-public void setblogDate(String blogDate) {
+public void setblogDate(Date blogDate) {
 	this.blogDate = blogDate;
 }
 public String getBlogText() {

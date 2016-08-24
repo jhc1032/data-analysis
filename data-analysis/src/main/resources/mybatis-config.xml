@@ -1,10 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE configuration
-    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
 
-</configuration>
+	<properties>
+		<property name="driver" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql:thin:@mybatis-config.xml:1521:xe" />
+		<property name="username" value="data" />
+		<property name="password" value="Data1234!" />
+	</properties>
+	<typeAliases>
+		<typeAlias type="com.dataanalysis.dto.Member" alias="Member" />
+		<typeAlias type="com.dataanalysis.dto.BlogData" alias="BlogData" />
+		<typeAlias type="com.dataanalysis.dto.search" alias="search" />
+		<typeAlias type="com.dataanalysis.dto.TwitterData" alias="TwitterData" />
 
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<!-- <property name="username" value="${username}" /> <property name="password" 
+					value="${password}" /> -->
+				<property name="username" value="data" />
+				<property name="password" value="Data1234!" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!-- Code에서 분리된 SQL문이 작성되고 객체와의 매핑 정보가 정의되는 파일들 경로는 패키지 경로를 사용 : com.demoweb 
+			-> com/demoweb 경로 -->
+
+
+		<mapper resource="com/dataanalysis/mapper/AnalysisMapper.xml" />
+	</mappers>
+
+</configuration>

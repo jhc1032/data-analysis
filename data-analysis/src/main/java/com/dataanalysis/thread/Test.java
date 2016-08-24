@@ -100,7 +100,7 @@ public class Test {
 					bd.setBlogTitle(title);
 					bd.setBlogText(content);
 					bd.setBlogURL(blogUrl);
-					bd.setblogDate(date);
+					//bd.setblogDate(date);
 					blogDatas.add(bd);
 					
 				}
